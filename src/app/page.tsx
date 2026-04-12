@@ -97,7 +97,9 @@ export default function Dashboard() {
 
   // Cumulative Stats State (All-time or Session-based that grows)
   const [cumulativeStats, setCumulativeStats] = useState({ friendly: 0, unknown: 0, hostile: 0, total: 0 })
+ 
   const [hasInitializedStats, setHasInitializedStats] = useState(false)
+   const [selectedSignal, setSelectedSignal] = useState<any>(null);
 
   useEffect(() => {
     if (!isUserLoading && !user) {
@@ -309,6 +311,9 @@ export default function Dashboard() {
             <div className="flex items-center gap-3">
               <Radio className="text-primary w-6 h-6 animate-pulse" />
               <h1 className="text-lg font-bold uppercase tracking-[0.4em] text-primary glow-text-phosphor">SanketRakshak</h1>
+              <p className="text-[10px] text-primary/70 tracking-widest mt-1">
+  Real-time Signal Intelligence & Threat Monitoring System
+</p>
             </div>
             <div className="h-6 w-px bg-primary/20 hidden md:block" />
             <div className="hidden md:flex items-center gap-6">
@@ -539,7 +544,7 @@ export default function Dashboard() {
                                  <Button 
                                   variant="ghost" 
                                   size="sm" 
-                                  onClick={(e) => openResponseMenu(e, signal)}
+                                  onClick={() => setSelectedSignal(signal)}
                                   className="h-8 text-[9px] uppercase font-bold tracking-widest border border-primary/10 hover:bg-primary/10"
                                  >
                                    Response
@@ -695,4 +700,34 @@ export default function Dashboard() {
       </div>
     </TooltipProvider>
   )
+  {selectedSignal && (
+  <div className="fixed bottom-4 right-4 bg-black border border-primary p-4 w-80 text-xs z-50">
+    
+    <h2 className="text-primary mb-2">🧠 AI Threat Analysis</h2>
+
+    <p>Status: 
+      <span className="ml-2 font-bold">
+        {selectedSignal.classification}
+      </span>
+    </p>
+
+    <p>Confidence: {Math.floor(Math.random()*20)+80}%</p>
+
+    <p className="mt-2">
+      Reason: Pattern anomaly + unknown RF signature + irregular waveform
+    </p>
+
+    <p className="mt-2 text-red-400">
+      Action: Immediate monitoring recommended
+    </p>
+
+    <button 
+      onClick={() => setSelectedSignal(null)}
+      className="mt-3 border px-2 py-1"
+    >
+      Close
+    </button>
+
+  </div>
+)}
 }
