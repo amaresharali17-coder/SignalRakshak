@@ -18,6 +18,9 @@ AI-powered real-time signal intelligence and threat monitoring dashboard.
 
 ## Screenshots 
 ### Deep Sector Archive 
+![Login Page](Screenshots/login.png)
+![Live Array feed](Screenshots/live_arr_feed.png)
+![Threat Focus Mode](Screenshots/threat focus.png)
 ![Deep Sector Archive](Screenshots/deep_sec_arch.png)
 
 ## 🌐 Live Demo
