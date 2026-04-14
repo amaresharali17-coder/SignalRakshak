@@ -16,6 +16,10 @@ AI-powered real-time signal intelligence and threat monitoring dashboard.
 - Tailwind CSS
 - Vercel
 
+## Screenshots 
+### Deep Sector Archive 
+![Deep Sector Archive](Screenshots/deep_sec_arch.png)
+
 ## 🌐 Live Demo
 https://signal-rakshak.vercel.app
 
